@@ -34,9 +34,25 @@ for f in json_files:
         data['PatientInformation']['Final']['PatientFirstName']=data['PatientInformation']['Final']['PatientFirstName'][0]
         data['PatientInformation']['Final']['PatientLastName']=data['PatientInformation']['Final']['PatientLastName'][0]
         
-        if data['PatientInformation']['Initial']['PatientFirstName']:
-            data['PatientInformation']['Initial']['PatientFirstName']=data['PatientInformation']['Initial']['PatientFirstName'][0]
-            data['PatientInformation']['Initial']['PatientLastName']=data['PatientInformation']['Initial']['PatientLastName'][0]
+    if data['PatientInformation']['Initial']['PatientFirstName']:
+        data['PatientInformation']['Initial']['PatientFirstName']=data['PatientInformation']['Initial']['PatientFirstName'][0]
+        data['PatientInformation']['Initial']['PatientLastName']=data['PatientInformation']['Initial']['PatientLastName'][0]
+        
+    if hasattr(data['PatientInformation']['Final'], 'PatientDateOfBirth'):
+        if data['PatientInformation']['Final']['PatientDateOfBirth']: data['PatientInformation']['Final']['PatientDateOfBirth']='anonym'
+    if hasattr(data['PatientInformation']['Final'], 'PatientId'):
+        if data['PatientInformation']['Final']['PatientId']: data['PatientInformation']['Final']['PatientId']='anonym'
+    if hasattr(data['DeviceInformation']['Final'], 'NeurostimulatorSerialNumber'):
+        if data['DeviceInformation']['Final']['NeurostimulatorSerialNumber']: data['DeviceInformation']['Final']['NeurostimulatorSerialNumber']='anonym'
+    
+    if hasattr(data['PatientInformation']['Initial'], 'PatientDateOfBirth'):
+        if data['PatientInformation']['Initial']['PatientDateOfBirth']: data['PatientInformation']['Initial']['PatientDateOfBirth']='anonym'
+    if hasattr(data['PatientInformation']['Initial'], 'PatientId'):
+        if data['PatientInformation']['Initial']['PatientId']: data['PatientInformation']['Initial']['PatientId']='anonym'
+    if hasattr(data['DeviceInformation']['Initial'], 'NeurostimulatorSerialNumber'):    
+        if data['DeviceInformation']['Initial']['NeurostimulatorSerialNumber']: data['DeviceInformation']['Initial']['NeurostimulatorSerialNumber']='anonym'
+    
+    
 
         
     jsonString = json.dumps(data)
